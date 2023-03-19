@@ -1,3 +1,5 @@
+package shape;
+
 import java.awt.Graphics;
 
 public class ShapeDecorator implements Shape

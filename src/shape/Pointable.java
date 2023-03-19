@@ -1,3 +1,4 @@
+package shape;
 
 public interface Pointable
   {
