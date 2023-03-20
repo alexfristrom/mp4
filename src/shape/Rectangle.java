@@ -45,12 +45,17 @@ public class Rectangle implements Shape {
 
     @Override
     public boolean intersects(Point point) {
+        if(center.distanceTo(point) < (int) (width/2) || center.distanceTo(point) < (int) (height/2)){
+            if(center.distanceTo(point) < (int) (height/2) && center.distanceTo(point) < (int) (width/2)){
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public void moveTo(Point point) {
-
+        center.moveTo(point);
     }
 
     @Override
@@ -66,6 +71,6 @@ public class Rectangle implements Shape {
 
     @Override
     public Shape peel() {
-        return null;
+        return this;
     }
 }
