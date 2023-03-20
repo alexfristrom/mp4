@@ -1,9 +1,6 @@
 package shape.state;
 
-import shape.Point;
-import shape.Shape;
-import shape.ShapeContainer;
-import shape.ShapeDecorator;
+import shape.*;
 
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class MarkState extends State{
         container.select(point);
         Shape selected = container.getSelected();
         if(selected != null) {
-            Shape markedShape = new ShapeDecorator(selected);
+            Shape markedShape = new CrossDecorator(selected);
             shapes.remove(selected);
             shapes.add(markedShape);
             container.repaint();

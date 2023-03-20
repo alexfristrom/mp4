@@ -21,9 +21,9 @@ public class DeleteState extends State{
         Shape selected = container.getSelected();
         if(selected != null) {
             shapes.remove(selected);
-            container.setSelected(null);
-            container.repaint();
         }
+        container.setSelected(null);
+        container.repaint();
     }
 
     @Override
