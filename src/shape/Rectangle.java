@@ -45,12 +45,20 @@ public class Rectangle implements Shape {
 
     @Override
     public boolean intersects(Point point) {
-        if(center.distanceTo(point) < (int) (width/2) || center.distanceTo(point) < (int) (height/2)){
+        /*if(center.distanceTo(point) < (int) (width/2) || center.distanceTo(point) < (int) (height/2)){
             if(center.distanceTo(point) < (int) (height/2) && center.distanceTo(point) < (int) (width/2)){
                 return true;
             }
         }
-        return false;
+        return false;*/
+        double x = center.getX();
+        double y = center.getY();
+        double left = x - width / 2;
+        double right = x + width / 2;
+        double top = y - height / 2;
+        double bottom = y + height / 2;
+        return (point.getX() >= left && point.getX() <= right &&
+                point.getY() >= top && point.getY() <= bottom);
     }
 
     @Override
@@ -65,8 +73,12 @@ public class Rectangle implements Shape {
 
     @Override
     public void resizeTo(Point point) {
-        width = center.distanceTo(point);
-        height = center.distanceTo(point);
+        double oldWidth = width;
+        double oldHeight = height;
+        double newWidth = center.distanceTo(point);
+        double ratio = newWidth / oldWidth;
+        width = newWidth;
+        height = oldHeight * ratio;
     }
 
     @Override
