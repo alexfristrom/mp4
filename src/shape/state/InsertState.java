@@ -1,9 +1,6 @@
 package shape.state;
 
-import shape.Circle;
-import shape.Point;
-import shape.Shape;
-import shape.ShapeContainer;
+import shape.*;
 
 public class InsertState extends State{
 
@@ -13,7 +10,12 @@ public class InsertState extends State{
 
     @Override
     public void pointerDown(Point point) {
-        container.addShape(new Circle(point, Math.random() * 50.0));
+        double xd = Math.random() * 10;
+        if(xd > 5){
+            container.addShape(new Circle(point, Math.random() * 50.0));
+        } else{
+            container.addShape(new Rectangle(point, (Math.random() + 0.2) * 50.0, (Math.random() + 0.2) * 50.0));
+        }
         container.repaint();
     }
 
